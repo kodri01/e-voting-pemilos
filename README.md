@@ -1,4 +1,3 @@
-# E-Voting
-Simple web app electronic voting | PHP
-# ¯\\_(ツ)_/¯
-This app was used for student council president election in my vocation high school. So I'm quite proud of this. :)
+# E-Voting Pemilos SMPN 2 Kota Jambi
+
+Website E-Voting untuk Pemilihan OSIS pada SMP Negeri 2 Kota Jambi Menggunakan PHP Native
