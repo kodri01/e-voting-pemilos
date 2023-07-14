@@ -58,7 +58,10 @@ include_once "../library/inc.session.php";
                 </tr>
             </thead>
             <tbody>
+
+
                 <?php
+
                 $query = "SELECT * FROM participants ORDER BY class ASC";
                 $result = mysqli_query($conn, $query);
                 if (mysqli_num_rows($result) > 0) {
@@ -73,12 +76,19 @@ include_once "../library/inc.session.php";
                         else
                             echo "<td class='bg-success'>";
                         echo "<td>";
-                        echo "<a href='?nav=voters&nis=$row[nis]' class='btn btn-success btn-sm m-2'>Edit</a>";
-                        echo "<a href='voterdel.php?nis=$row[nis]' class='btn btn-danger btn-sm m-2'>Delete</a>";
+                        if ($_SESSION["akses"] == "admin") {
+                            // Jika akses = admin, tampilkan action edit dan delete
+                            echo "<a href='?nav=voters&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
+                            echo "<a href='voterdel.php?nis=$row[nis]' class='btn btn-danger btn-sm m-2'>Delete</a>";
+                        } else {
+                            // Jika bukan admin, hanya tampilkan action edit
+                            echo "<a href='?nav=voters&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
+                        }
                         echo "</td>";
                         echo "</tr>";
                     }
                 }
+
                 ?>
             </tbody>
 

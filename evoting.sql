@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 12:57 PM
+-- Generation Time: Jul 14, 2023 at 09:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `idadmin` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
+  `akses` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -37,8 +38,9 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`idadmin`, `username`, `password`) VALUES
-(123, 'admin', '4297f44b13955235245b2497399d7a93');
+INSERT INTO `admin` (`idadmin`, `username`, `akses`, `password`) VALUES
+(111, 'pembina', 'pembina', '4297f44b13955235245b2497399d7a93'),
+(123, 'admin', 'admin', '4297f44b13955235245b2497399d7a93');
 
 -- --------------------------------------------------------
 
@@ -61,10 +63,8 @@ CREATE TABLE `candidates` (
 --
 
 INSERT INTO `candidates` (`no_urut`, `nis`, `photo`, `name`, `class`, `motto`, `counts`) VALUES
-(1, '12222', '12222.jpg', 'Andini Laraswati', 'kelas A', 'motto nya itu', 1),
-(2, '12334', '12334.jpg', 'Jaka Tingkir', 'kelas B', 'Motto adalah motto dong', 3),
-(3, '1231', '1231.jpg', 'Wahyu', 'Kelas B', 'Motto nya', 1),
-(4, '1111', '1111', 'Bima Sakti', 'Kelas C', 'Motto nya', 0);
+(1, '3333', '3333', 'Muslim Aminah', 'Kelas A', 'Motto', 0),
+(2, '2222', '2222', 'Siska Kol', 'Kelas B', 'Mooto', 1);
 
 -- --------------------------------------------------------
 
@@ -85,12 +85,8 @@ CREATE TABLE `participants` (
 --
 
 INSERT INTO `participants` (`nis`, `name`, `class`, `state`, `tgl`) VALUES
-(1232, 'Yusuf', 'kelas A', 1, '2023-07-31'),
-(1234, 'Dini', 'Kelas E', 0, '2023-01-01'),
-(2311, 'Budi', 'Kelas B', 1, '2023-11-30'),
-(2928, 'Ali Bidin', 'Kelas B', 1, '2023-12-31'),
-(3333, 'Luluk', 'Kelas B', 1, '2023-12-31'),
-(4231, 'Lili', 'kelas A', 1, '2023-07-31');
+(1122, 'Isman', 'Kelas A', 1, '2023-01-01'),
+(1133, 'Junianti', 'Kelas A', 0, '2023-01-01');
 
 --
 -- Indexes for dumped tables

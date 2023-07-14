@@ -12,6 +12,9 @@
          $row = mysqli_fetch_assoc($result);
          if($_SESSION["passsmecon"] != md5($row["password"]))
             header("location:../admin/logout.php");
+         else {
+            // Set session akses di sini
+            $_SESSION["akses"] = $row["akses"];
+         }
       }
    }
- ?>

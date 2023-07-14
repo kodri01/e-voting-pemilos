@@ -1,8 +1,8 @@
 <?php
 include_once "../library/inc.session.php";
-if ($_SESSION["usersmecon"] != "admin") {
-    exit();
-}
+// if ($_SESSION["usersmecon"] != "admin") {
+//     exit();
+// }
 $query = "SELECT name, counts FROM candidates ORDER BY no_urut ASC";
 $result = mysqli_query($conn, $query);
 $sum = 0;
@@ -25,49 +25,49 @@ if (mysqli_num_rows($result) > 0) {
 
 <div id="chart" style="min-width: 310px; height: 400px; margin: 0 auto" class="mt-3"></div>
 <script type="text/javascript">
-    // Create the chart
-    Highcharts.chart('chart', {
-        chart: {
-            type: 'column'
-        },
+// Create the chart
+Highcharts.chart('chart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Hasil Pemilihan E-Voting OSIS SMPN 2 Kota Jambi'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
         title: {
-            text: 'Hasil Pemilihan E-Voting OSIS SMPN 2 Kota Jambi'
-        },
-        subtitle: {
-            text: ''
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
-            title: {
-                text: 'Jumlah Pemilih'
+            text: 'Jumlah Pemilih'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.d:.1f}%'
             }
+        }
+    },
 
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.d:.1f}%'
-                }
-            }
-        },
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> votes<br/>'
+    },
 
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> votes<br/>'
-        },
-
-        "series": [{
-            "name": "Candidates",
-            "colorByPoint": true,
-            "data": [
-                <?php
+    "series": [{
+        "name": "Candidates",
+        "colorByPoint": true,
+        "data": [
+            <?php
                 if ($sum != 0) {
                     $query = "SELECT name, counts FROM candidates ORDER BY no_urut ASC";
                     $result = mysqli_query($conn, $query);
@@ -89,9 +89,9 @@ if (mysqli_num_rows($result) > 0) {
                     }
                 }
                 ?>
-            ]
-        }]
-    });
+        ]
+    }]
+});
 </script>
 <div class="alert alert-secondary">
     <table>
