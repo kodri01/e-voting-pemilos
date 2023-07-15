@@ -39,7 +39,14 @@ include_once "../library/inc.session.php";
                 <td>Kelas</td>
                 <td>Motto</td>
                 <td>Photo</td>
-                <td>Action</td>
+                <?php
+                if ($_SESSION["akses"] == "admin") {
+
+                    echo "<td>Action</td>";
+                } else {
+                    echo '';
+                }
+                ?>
             </thead>
             <tbody>
                 <?php
@@ -54,16 +61,11 @@ include_once "../library/inc.session.php";
                         echo "<td>$row[motto]</td>";
                         echo "<td style='width: 100px;'><img src='../assets/img/$row[photo]' class='img-fluid img-rounded' alt='$row[photo]'></td>";
                         echo "<td>";
-                        // echo "<a href='?nav=candidates&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
-                        // echo "<a href='candidatedel.php?nis=$row[nis]' class='btn btn-danger btn-sm m-2'>Delete</a>";
-
                         if ($_SESSION["akses"] == "admin") {
-
                             echo "<a href='?nav=candidates&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
                             echo "<a href='candidatedel.php?nis=$row[nis]' class='btn btn-danger btn-sm m-2'>Delete</a>";
                         } else {
-
-                            echo "<a href='?nav=candidates&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
+                            echo '';
                         }
                         echo "</td>";
                         echo "</tr>";

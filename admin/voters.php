@@ -54,7 +54,14 @@ include_once "../library/inc.session.php";
                     <th>Tanggal Lahir</th>
                     <th>Kelas</th>
                     <th>Vote</th>
-                    <th>Action</th>
+                    <?php
+                    if ($_SESSION["akses"] == "admin") {
+
+                        echo "<td>Action</td>";
+                    } else {
+                        echo '';
+                    }
+                    ?>
                 </tr>
             </thead>
             <tbody>
@@ -81,8 +88,7 @@ include_once "../library/inc.session.php";
                             echo "<a href='?nav=voters&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
                             echo "<a href='voterdel.php?nis=$row[nis]' class='btn btn-danger btn-sm m-2'>Delete</a>";
                         } else {
-                            // Jika bukan admin, hanya tampilkan action edit
-                            echo "<a href='?nav=voters&nis=$row[nis]' class='btn btn-warning btn-sm m-2'>Edit</a>";
+                            echo "";
                         }
                         echo "</td>";
                         echo "</tr>";
