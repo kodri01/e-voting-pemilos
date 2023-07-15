@@ -1,6 +1,8 @@
 <?php
 include_once("library/inc.connection.php");
 include_once("library/inc.function.php");
+include_once "library/inc.sessionvoter.php";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $nis = test_input($_POST["nis"]);
@@ -11,11 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (mysqli_num_rows($result) != 0) {
       $row = mysqli_fetch_assoc($result);
       if ($tgl == $row['tgl']) {
-         if ($row['state'] == 1)
+         if ($row['state'] == 1) {
             // header("location:login.php?login=voted");
-
-            header("location:hasil.php");
-         else {
+            session_start();
+            $_SESSION["votername"] = $row['name'];
+            header("location:hasil.php?login=berhasil&name=$_SESSION[votername]");
+         } else {
             session_start();
             $_SESSION["voternis"] = $nis;
             $_SESSION["votername"] = $row['name'];
