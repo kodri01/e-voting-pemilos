@@ -17,17 +17,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // header("location:login.php?login=voted");
             session_start();
             $_SESSION["votername"] = $row['name'];
-            header("location:hasil.php?login=berhasil&name=$_SESSION[votername]");
+            $_SESSION["state"] = $row['state'];
+            header("location:beranda.php?login=berhasil&name=$_SESSION[votername]");
          } else {
             session_start();
             $_SESSION["voternis"] = $nis;
             $_SESSION["votername"] = $row['name'];
             $_SESSION["votertgl"] = $tgl;
-            header("location:index.php");
+            $_SESSION["state"] = $row['state'];
+            header("location:beranda.php?name=$_SESSION[votername]");
          }
       } else
-         header("location:login.php?login=salah");
+         header("location:index.php?login=salah");
    } else
-      header("location:login.php?login=salah");
+      header("location:index.php?login=salah");
 } else
-   header("location:login.php?a=a");
+   header("location:index.php?a=a");

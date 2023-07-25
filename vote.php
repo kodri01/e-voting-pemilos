@@ -5,12 +5,14 @@ if (isset($_GET["nis"])) {
    $query = "UPDATE participants SET state='1' WHERE nis = $_SESSION[voternis]";
    if (mysqli_query($conn, $query)) {
       $query = "UPDATE candidates SET counts = (counts + 1) WHERE nis = '$_GET[nis]'";
-      if (mysqli_query($conn, $query))
-         header("location:hasil.php?vote=berhasil&name=$_SESSION[votername]");
-      else {
+      if (mysqli_query($conn, $query)) {
+         session_start();
+         $_SESSION["state"] = $row['state'];
+         header("location:index.php?vote=berhasil&name=$_SESSION[votername]");
+      } else {
          $query = "UPDATE participants SET state='0' WHERE nis = $_SESSION[voternis]";
          mysqli_query($conn, $query);
-         header("location:index.php?vote=gagal");
+         header("location:beranda.php?vote=gagal");
       }
    }
 } else

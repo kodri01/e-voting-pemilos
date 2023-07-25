@@ -11,9 +11,10 @@ if (isset($_SESSION["voternis"]) && isset($_SESSION["votername"]) && isset($_SES
       $row = mysqli_fetch_assoc($result);
       // if($_SESSION["votername"] != $row["name"] || $_SESSION["votertgl"] != $row["tgl"] || $row["state"] == 1){
       if ($_SESSION["votername"] != $row["name"] || $_SESSION["votertgl"] != $row["tgl"]) {
-         header("location:logout.php");
+         header("location:index.php");
       }
    } else
-      header("location:logout.php");
+
+      header("location:beranda.php");
 } else
    header("location:logout.php");
