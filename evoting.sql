@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 12:59 PM
+-- Generation Time: Jul 26, 2023 at 05:55 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -64,8 +64,8 @@ CREATE TABLE `candidates` (
 
 INSERT INTO `candidates` (`no_urut`, `nis`, `photo`, `name`, `class`, `motto`, `counts`) VALUES
 (1, '1234', '1234', 'Budi Handuk', 'Kelas A', 'Bekerja Sama Dalam Meraih Winner Winner Chicken Dinner', 0),
-(2, '4321', '4321', 'Angela Larasati', 'Kelas B', 'Selalu siap untuk melakukan push rank sampai mytic', 1),
-(3, '2341', '2341', 'Joko Anwar', 'Kelas C', 'Booyah nomor 1, belajar nanti saja', 1);
+(2, '4321', '4321', 'Angela Larasati', 'Kelas B', 'Selalu siap untuk melakukan push rank sampai mytic', 0),
+(3, '2341', '2341', 'Joko Anwar', 'Kelas C', 'Booyah nomor 1, belajar nanti saja', 0);
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,9 @@ CREATE TABLE `participants` (
 --
 
 INSERT INTO `participants` (`nis`, `name`, `class`, `state`, `tgl`) VALUES
-(1234, 'Vivi Zulyanti', 'Kelas B', 1, '2023-12-31'),
-(4321, 'Rangga Andira', 'Kelas C', 1, '2023-12-31');
+(1111, 'Luluk Manila', 'Kelas B', 0, '2023-12-31'),
+(1234, 'Vivi Zulyanti', 'Kelas B', 0, '2023-12-31'),
+(4321, 'Rangga Andira', 'Kelas C', 0, '2023-12-31');
 
 --
 -- Indexes for dumped tables

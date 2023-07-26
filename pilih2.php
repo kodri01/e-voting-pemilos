@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-
-<body>
+<?php
+// Periksa apakah pengguna telah login dengan mengecek session
+if (isset($_SESSION["votername"])) {
+    // Akses data dari session
+    $name = $_SESSION["votername"];
+    // Selain mencetak, Anda bisa melakukan operasi lain sesuai kebutuhan aplikasi Anda
+} else {
+    // Jika pengguna belum login, Anda bisa mengarahkan mereka kembali ke halaman login
+    header("location:index.php");
+}
 
 
-    <div class="container">
-        <h1 class="text-center my-3">Terima Kasih, Kamu telah memilih Kandidat</h1>
+?>
 
+<center>
+    <div class="card text-white bg-success my-2 " style="max-width: 50%;">
+        <div class="card-body">
+            <h3 class="card-title"><?= $name ?>, Kamu Sudah Berpartisipasi Dalam <br>Pemilihan <strong>Ketua
+                    OSIS
+                    SMP Negeri 2 Kota Jambi</strong></h3>
+        </div>
     </div>
-
-
-
-</body>
-
-</html>
+</center>
